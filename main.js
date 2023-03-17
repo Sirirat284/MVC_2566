@@ -8,8 +8,8 @@ const app = express();
 const port = process.env.PORT || 3000
 const bodyParser = require('body-parser');
 
-
-
+app.set('view engine', 'ejs')
+app.set('views',path.join(__dirname, 'view'))
 
 // For Master process
 if (cluster.isMaster) {
