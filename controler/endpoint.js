@@ -1,0 +1,1 @@
+const { logic } = require('../controler/logic.js')
