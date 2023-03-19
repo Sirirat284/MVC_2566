@@ -1,7 +1,7 @@
 const mysql = require('mysql');
     const connection = mysql.createConnection({
         host: 'localhost',
-        database: '',
+        database: 'annisa-mvc',
         port: 3306,
         user: 'root',
         password: ''

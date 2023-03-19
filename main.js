@@ -1,6 +1,7 @@
 const express = require('express');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
+const path = require('path')
 const routes = require("./router/router.js");
 const cors = require('cors');
 const helmet = require('helmet');
@@ -13,7 +14,7 @@ app.set('views',path.join(__dirname, 'view'))
 
 // For Master process
 if (cluster.isMaster) {
-    console.log(`[ Master ]${process.pid} is running`);
+    console.log(`[ Master ] ${process.pid} is running`);
     console.log(`[starting] http://localhost:${port}/`);
     for (let i = 0; i < numCPUs; i++) {
         cluster.fork();
