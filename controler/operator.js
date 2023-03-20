@@ -10,7 +10,7 @@ class Operator {
                 }
                 else {
                     //console.log(data);
-                    return res.status(201).render('../view/home.ejs', {
+                    return res.status(201).render('../view/showInfo.ejs', {
                         response: data
                     });
                 }

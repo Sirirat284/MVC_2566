@@ -1,4 +1,4 @@
-<%-include('../view/patials/header.ejs')%>
+<%-include('./patials/header.ejs')%>
     <!DOCTYPE html>
     <html lang="" en>
     <meta charset="UTF-8">
@@ -53,83 +53,19 @@
                 </div>
                 <!-- <button class="btn btn-warning" type="submit">Search</button> -->
                 <div>
-                    <div class="text-center padding-t">
-                        <button class="btn btn-success" type="text">Add Employee By random data</button>
-                        <button class="btn btn-warning">
-                            <a href="http://localhost:3000/report">
-                                show report
-                            </a>
-                        </button>
+                    <div class="text-center padding-t ">
+                        <button class="btn btn-success" type="submit">Add Employee By random data</button>
+                        <!-- <button class="btn btn-danger" type="cancel">cancel</button> -->
                     </div>
-
                     </form>
                 </div>
             </div>
         </div>
-
-
-        <div class="container-fluid F1 font16 padding-t">
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-2 col-lg-3 col-xl-3 col-xxl-3"></div>
-                <div class="col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 col-xxl-6">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr class="bg-warning">
-                                <th scope="col">No.</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Phone Number</th>
-                                <th scope="col">Address</th>
-                                <th scope="col">Salary</th>
-                                <th scope="col">Department</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Edit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% for(let i of response){ %>
-
-                                <tr>
-                                    <th scope="row">
-                                        <%= i.employee_id %>
-                                    </th>
-                                    <td>
-                                        <%= i.name %>
-                                    </td>
-                                    <td>
-                                        <%= i.Tell %>
-                                    </td>
-                                    <td>
-                                        <%= i.Address %>
-                                    </td>
-                                    <td>
-                                        <%= i.salary %>
-                                    </td>
-                                    <td>
-                                        <%= i.dept_name %>
-                                    </td>
-                                    <td>
-                                        <%= i.head_id %>
-                                    </td>
-                                    <td>
-                                        <div class="text-center padding-t">
-                                            <form action="http://localhost:3000/getEditUser/<%= i.employee_id %>"
-                                                method="GET">
-                                                <button class="btn btn-warning" type="submit">edit</button>
-                                            </form>
-
-
-                                            <form action="http://localhost:3000/deleteInfo/<%= i.employee_id %>"
-                                                method="GET">
-                                                <button class="btn btn-danger" type="cancel">delete</button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <% } %>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="text-center  ">
+            <button class="btn btn-warning">
+                <a href="http://localhost:3000/showInformation">
+                    SHOW INFORMATION
+                </a>
+            </button>
         </div>
-        </div>
-        </body>
+    </body>
