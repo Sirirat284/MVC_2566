@@ -8,5 +8,9 @@ module.exports = {
         dept_name: '' ,
         head_id: '',
         level: ''
+    },
+    admin:{
+        name :'',
+        password: ''
     }
 }

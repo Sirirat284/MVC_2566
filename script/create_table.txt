@@ -1,0 +1,4 @@
+create table admin (
+	useradmin varchar(255),
+	password varchar(255)
+)
