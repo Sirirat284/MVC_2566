@@ -8,7 +8,7 @@ class Endpoint {
     }
 
     showInfoEndpoint = (req, res) => {
-        new Logic().showInfoLogic(res);
+        new Logic().showInfoLogic(req,res);
     }
 
 }

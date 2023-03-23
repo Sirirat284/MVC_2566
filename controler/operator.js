@@ -1,7 +1,7 @@
 const connection = require('../database/connect');
 class Operator {
 
-    showInfoOperator = (res) => {
+    showInfoOperator = (req,res) => {
         let sql = `SELECT * FROM employee`
         connection.query(sql,
             function (err, data) {
@@ -10,7 +10,7 @@ class Operator {
                 }
                 else {
                     //console.log(data);
-                    return res.status(201).render('../view/showInfo.ejs', {
+                    return res.status(201).render('..view/showInfo.ejs', {
                         response: data
                     });
                 }

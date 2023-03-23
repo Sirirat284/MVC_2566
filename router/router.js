@@ -5,10 +5,13 @@ const router = express.Router()
 
 const { Endpoint } = require('../controler/endpoint.js')
 
-router.get("/showInformation", new Endpoint().showInfoEndpoint);
+// router.get("/showInformation", new Endpoint().showInfoEndpoint);
+router.get("/showInformation",(req, res) => {
+    return res.render('../view/showInfo.ejs')
+});
 
 router.get('/', (req, res) => {
-    return res.render('../view/home.ejs')
+    return res.render('../view/page1.ejs')
 })
 
 module.exports = router;

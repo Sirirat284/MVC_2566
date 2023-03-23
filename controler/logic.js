@@ -2,8 +2,8 @@ const { Operator } = require('./operator');
 
 class Logic {
 
-    showInfoLogic = (res) => {
-        new Operator().showInfoOperator(res);
+    showInfoLogic = (req,res) => {
+        new Operator().showInfoOperator(req,res);
     }
 }
 module.exports = {
