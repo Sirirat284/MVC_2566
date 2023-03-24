@@ -108,35 +108,35 @@
 </head>
 <body>
     <div class="text-center F1 font30 padding-bt padding-t bold">Welcome to MVC programming</div>
-        <h6 class="text-center F1 font30 padding-bt padding-t bold">start</h6>
-        <div class="container-fluid padding-bt ">
-            <div class="row">
-                <div class="col-xxl-3"></div>
-                <div class="col-9 col-lg-18 ">
-                            <form class="form-horizontal" class="d-flex" action="/admin123/login"
-                                method="POST">
-                                <div class="from-group">
-                                    <label class="col-lg-3 control-label">user:</label>
-                                    <div class="col-lg-8">
-                                        <input name="username" class="form-control me-2" type="text" value="admin123" >
-                                    </div>
-                                    <label class="col-lg-3 control-label">user:</label>
-                                    <div class="col-lg-8">
-                                        <input name="password" class="form-control me-2" type="password" placeholder="" >
-                                    </div>
-                                </div>
-                                <div class="padding-t padding-l ">
-                                    <button class="btn btn-success" type="submit">Login</button>
-                                </div>
-                            </form>
-                            <div>
-                                <h1><%= response.notification %></h1>
+    <h6 class="text-center F1 font30 padding-bt padding-t bold">start</h6>
+    <div class="container-fluid padding-bt ">
+        <div class="row">
+            <div class="col-xxl-3"></div>
+            <div class="col-9 col-lg-18 ">
+                        <form class="form-horizontal" class="d-flex" action=" "
+                            method="POST">
+                            <div class="F1 font30">
+                                <p> user id = <%=response[0].userid %> </p>
+                                <p> user name = <%=response[0].firstname %>  <%=response[0].lastname %></p>
+                                <p> feedback = <%=response[0].feedback %> </p>
                             </div>
-                        </div>
+                            <div class="from-group">
+                                <label class="col-lg-3 control-label">status:</label>
+                                <div class="col-lg-8">
+                                    <input name="status" class="form-control me-2" type="text" value= <%=response[0].status %>>
+                                </div>
+                            </div>
+
+                            <div class="padding-t padding-l ">
+                                <button class="btn btn-success" type="submit">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
+</div>
+
 </body>
 </html>

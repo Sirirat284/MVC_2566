@@ -1,13 +1,19 @@
 const { Operator } = require('./operator');
 const axios = require('axios');
+const model = require('./model');
+const { response } = require('express');
 
 class Logic {
-
-    showInfoLogic = (req,res) => {
-        new Operator().showInfoOperator(req,res);
+    constructor(){
+        this.admindata = model.adminlogin;
     }
-
-
+    //user
+    insertdataLogic = (res , employee) =>{
+        new Operator().insertdataOperator(res , employee)
+    }
+    showdataLogic = (res) => {
+       new Operator().showdataOperator(res) 
+    }
 
 
 
@@ -16,19 +22,31 @@ class Logic {
 
 
     //admin
-    checkadminLogic = async(res,admin) => {
-        console.log(admin.name)
-        var uri =  axios.get(`http://localhost:3000/username`)
-        var URLEncode = encodeURI(uri); 
-        let response = await axios.get(URLEncode)
-        var username = response.data.response[0].useradmin
-                
+    loginLogic = (res ,admin) => {
+        const user = admin.user
+        const password = admin.password
+        console.log(this.admindata)
+        if (user==this.admindata.user){
+            if(password==this.admindata.password){
+                return res.status(201).redirect('/admin123/function/editanddelete');
+            }
+            else
+            return res.status(201).render('../view/admin',{response:{notification:'sorry'} });
+        }
+        else
+            return res.status(201).render('../view/admin',{response:{notification:'sorry'} });
+    }
+    showdatauserforadminLogic = (res ,userid) =>{
+        new Operator().showdatauserforadminOperator(res,userid)
     }
 
-
-    selectusernameLogic = (res,username) => {
-        new Operator().selectusernameOperator(res , username);
+    adminshowdataEndpoint =(res) => {
+        new Operator().showdataforadminOperator(res);
     }
+    editdataforadminLogic = (res , user) => {
+        new Operator().editdataforadminOperator(res,user)
+    }
+
 }
 module.exports = {
     Logic

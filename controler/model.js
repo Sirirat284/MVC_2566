@@ -1,16 +1,18 @@
 module.exports = {
-    employee: {
+    user: {
         employee_id : '',
-        name: '',
-        Tell: '',
-        Address: '',
-        salary: '',
-        dept_name: '' ,
-        head_id: '',
-        level: ''
+        firstname: '',
+        lastname:'',
+        email: '',
+        feedback:'',
+        status:''
     },
-    admin:{
-        name :'',
+    admin: {
+        user:'',
         password: ''
+    },
+    adminlogin:{
+        user:'admin123',
+        password: '1234'
     }
 }

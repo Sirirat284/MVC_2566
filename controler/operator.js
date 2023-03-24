@@ -1,16 +1,39 @@
+const { response } = require('express')
 const connection = require('../database/connect');
 class Operator {
-
-    showInfoOperator = (req,res) => {
-        let sql = `SELECT * FROM employee`
-        connection.query(sql,
+    //user
+    insertdataOperator=(res , user ) =>{
+        let sql =`insert into users (firstname,lastname,email,feedback,status)
+        values(?,?,?,?,open);`
+        connection.query(
+            sql, [
+                user.firstname, 
+                user.lastname, 
+                user.email, 
+                user.feedback
+        ],
+            function (err) {
+                if (err) {
+                    console.log(err)
+                    return res.status(201).redirect('/');
+                }
+                else {
+                    return res.status(201).redirect('/');
+                }
+            }
+        )
+    }
+    showdataOperator=(res) => {
+        let sql = `select userid , firstname ,lastname, email, feedback from users
+                    where status = 'open'`
+        connection.query(
+            sql,
             function (err, data) {
                 if (err) {
                     console.log(err)
                 }
                 else {
-                    //console.log(data);
-                    return res.status(201).render('..view/showInfo.ejs', {
+                    return res.status(201).render('../view/page_showdata', {
                         response: data
                     });
                 }
@@ -26,23 +49,65 @@ class Operator {
 
 
 
-
     //admin
-    selectusernameOperator = (res,usermane) => {
-        let sql = `SELECT useradmin FROM admin`
-        connection.query(sql ,
-            function (err, data){
-                if(err)
+    showdataforadminOperator=(res) => {
+        let sql = `select * from users`
+        connection.query(
+            sql,
+            function (err, data) {
+                if (err) {
                     console.log(err)
-                else{
-                    console.log(data)
-                    return res.status(201).send({response: data})
                 }
+                else {
+                    return res.status(201).render('../view/adminshowdata.ejs', {
+                        response: data
+                    });
+                }
+            }
+        )
 
-            })
+    }
+    showdatauserforadminOperator=(res,userid) => {
+        let sql = `select * from users
+                    where userid = ?`
+        connection.query(
+            sql,[userid],
+            function (err, data) {
+                if (err) {
+                    console.log(err)
+                }
+                else {
+                    console.log(data)
+                    return res.status(201).render('../view/adminedituser.ejs', {
+                        response: data
+                    });
+                }
+            }
+        )
+
+    }
+    editdataforadminOperator=(res,user) => {
+        let sql = `UPDATE users
+                    SET status = ? , timestamp = CURRENT_TIMESTAMP
+                    WHERE userid = ? ;`
+        connection.query(
+            sql,[user.status,
+                user.userid],
+            function (err, data) {
+                if (err) {
+                    console.log(err)
+                }
+                else {
+                    return res.status(201).redirect('/admin123/function/editanddelete')
+                }
+            }
+        )
     }
 
+
+
 }
+
 module.exports = {
     Operator
 }

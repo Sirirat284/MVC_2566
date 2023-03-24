@@ -1,23 +1,13 @@
+<%-include('./patials/header.ejs')%>
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="" en>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta http-equiv="Content-Security-Policy" content="default-src *;img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
-        </script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <title>Admin</title>
-
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid padding-ls padding-le">
-                <h2 class="text-center text_color_white ">Admin</h2>
-        </div>
-    </nav>
-
+    </script>
     <style>
         .bold {
             font-weight: bold;
@@ -97,46 +87,56 @@
         h6 {
             text-align: center;
         }
-        .text_color_white {
-            color: white;
-        }
-        h1 {
-            
-            color: rgb(255, 0, 0);
-        }
     </style>
-</head>
+
 <body>
+
     <div class="text-center F1 font30 padding-bt padding-t bold">Welcome to MVC programming</div>
         <h6 class="text-center F1 font30 padding-bt padding-t bold">start</h6>
         <div class="container-fluid padding-bt ">
             <div class="row">
                 <div class="col-xxl-3"></div>
                 <div class="col-9 col-lg-18 ">
-                            <form class="form-horizontal" class="d-flex" action="/admin123/login"
+                            <form class="form-horizontal" class="d-flex" action="/insert/insertdata"
                                 method="POST">
                                 <div class="from-group">
-                                    <label class="col-lg-3 control-label">user:</label>
+                                    <label class="col-lg-3 control-label">first name:</label>
                                     <div class="col-lg-8">
-                                        <input name="username" class="form-control me-2" type="text" value="admin123" >
-                                    </div>
-                                    <label class="col-lg-3 control-label">user:</label>
-                                    <div class="col-lg-8">
-                                        <input name="password" class="form-control me-2" type="password" placeholder="" >
+                                        <input name="firstname" class="form-control me-2" type="text" placeholder="first name" >
                                     </div>
                                 </div>
+                                <div class="from-group">
+                                    <label class="col-lg-3 control-label">last name:</label>
+                                    <div class="col-lg-8">
+                                        <input name="lastname" class="form-control me-2" type="text" placeholder="lastname">
+                                    </div>
+                                </div>
+                                <div class="from-group">
+                                    <label class="col-lg-3 control-label">email:</label>
+                                    <div class="col-lg-8">
+                                        <input name="email" class="form-control me-2" type="text" placeholder="email">
+                                    </div>
+                                </div>
+                                <div class="from-group">
+                                    <label class="col-lg-3 control-label">Feedback:</label>
+                                    <div class="col-lg-8">
+                                        <input name="comment" class="form-control me-2" type="text" placeholder="feedback">
+                                    </div>
+                                </div>
+
                                 <div class="padding-t padding-l ">
-                                    <button class="btn btn-success" type="submit">Login</button>
+                                    <button class="btn btn-success" type="submit">Submit</button>
                                 </div>
                             </form>
-                            <div>
-                                <h1><%= response.notification %></h1>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> 
-</body>
+    </div>        
+        <footer class="bg-dark">
+            <p>StudentID : 63050190 </p>
+            <p>Name's Sirirat Sanghkao</p>
+        </footer>
+</body>  
 </html>

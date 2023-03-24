@@ -1,2 +1,0 @@
-INSERT INTO admin (useradmin , password)
-VALUES ('admin1' , 'admin123');

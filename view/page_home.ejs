@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src *;img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>
@@ -72,30 +73,46 @@
             padding: 3px;
             background-color: rgb(20, 20, 20);
             color: white;
+            display: block;
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            padding: 0px;
+            text-align: center;
+            width: 100%;
         }
-
+        .text-center {
+            text-align: center;
+        }
+        h6 {
+            text-align: center;
+        }
     </style>
 
 <body>
 
-    <div class="text-center F1 font30 padding-bt padding-t bold">page 1</div>
-    <div class="container-fluid padding-bt ">
-        <div class="row">
-            <div class="col-xxl-3"></div>
-            <div class="row align-items-center">
+    <div class="text-center F1 font30 padding-bt padding-t bold">Welcome to MVC programming</div>
+    <h6 class="text-center F1 font30 padding-bt padding-t bold">Select add data or show data</h6>
+        <div class="container-fluid padding-bt ">
+            <div class="row">
+                <div class="col-xxl-3"></div>
+                <div class="col-9 col-lg-18 ">
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <a href="http://localhost:3000/insert">
+                            <bottom class="btn btn-success" type="submit">add data</bottom>
+                        </a>
+                        <a href="http://localhost:3000/showdata">
+                            <bottom class="btn btn-warning" type="submit">show data</bottom>
+                        </a>   
+                    </div>  
+                </div>
             </div>
-        </div>        
-    </div> 
-
-    
-
-
-
-
-    <footer class="bg-dark">
-        <p>StudentID : 63050190 <br>
-        <p>Name's Sirirat Sanghkao</p>
-        </p>
-    </footer>
+        </div>
+            
+        <footer class="bg-dark">
+            <p>StudentID : 63050190 <br>
+            <p>Name's Sirirat Sanghkao</p>
+        </footer>
+    </body>
 </body>  
 </html>

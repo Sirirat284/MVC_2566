@@ -11,21 +11,25 @@ router.get("/showInformation",(req, res) => {
 });
 
 router.get('/', (req, res) => {
-    return res.render('../view/page1.ejs')
+    return res.render('../view/page_home.ejs')
 })
-router.get('/page2', (req, res) => {
-    return res.render('../view/page2.ejs')
+router.get('/insert', (req, res) => {
+    return res.render('../view/page_insert.ejs')
 })
+router.post('/insert/insertdata',new Endpoint().insertdataEndpoint)
+router.get('/showdata',new Endpoint().showdataEndpoint)
+
+
+
+
+//admin function
 router.get('/admin123', (req, res) => {
-    return res.render('../view/admin.ejs')
+    return res.render('../view/admin.ejs',{response:{notification:''} })
 })
+router.post('/admin123/login', new Endpoint().loginEndpoint)
 
+router.get('/admin123/function/editanddelete' , new Endpoint().adminshowdataEndpoint)
 
+router.post('/edituser/:userid',new Endpoint().editdataforadminEndpoint)
 
-
-
-
-//admincheck
-router.post('/admin123/login',new Endpoint().checkadminEndpoint)
-router.get('/username' ,new Endpoint().selectusernameEnpoint)
 module.exports = router;

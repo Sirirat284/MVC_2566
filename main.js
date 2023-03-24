@@ -12,6 +12,16 @@ const bodyParser = require('body-parser');
 app.set('view engine', 'ejs')
 app.set('views',path.join(__dirname, 'view'))
 
+app.use(helmet());
+app.use(
+    helmet.contentSecurityPolicy({
+      useDefaults: true,
+      directives: {
+        "script-src": ["'self'", "'unsafe-inline'", "example.com"],
+        "img-src": ["'self'", "https: data:"]
+      }
+    })
+  )
 // For Master process
 if (cluster.isMaster) {
     console.log(`[ Master ] ${process.pid} is running`);
