@@ -12,15 +12,11 @@ class Logic {
         new Operator().insertdataOperator(res , employee)
     }
     showdataLogic = (res) => {
+       new Operator().update() 
        new Operator().showdataOperator(res) 
     }
 
-
-
-
-
-
-
+    
     //admin
     loginLogic = (res ,admin) => {
         const user = admin.user

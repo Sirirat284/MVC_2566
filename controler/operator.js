@@ -25,7 +25,7 @@ class Operator {
     }
     showdataOperator=(res) => {
         let sql = `select userid , firstname ,lastname, email, feedback from users
-                    where status = 'open'`
+                    where status = 'open';`
         connection.query(
             sql,
             function (err, data) {
@@ -40,6 +40,25 @@ class Operator {
             }
         )
     }
+    update = () =>{
+        let sql = `update users 
+                   set status = 'close'
+                   where timestamp  < date_sub(now(), interval 1 week);`
+        connection.query(
+            sql,
+            function (err, data) {
+                if (err) {
+                    console.log(err)
+                }
+                else {
+                    // return res.status(201).render('../view/page_showdata', {
+                    //     response: data
+                    // });
+                }
+            }
+        )
+    }
+    
 
 
 
