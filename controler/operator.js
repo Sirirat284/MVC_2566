@@ -4,7 +4,7 @@ class Operator {
     //user
     insertdataOperator=(res , user ) =>{
         let sql =`insert into users (firstname,lastname,email,feedback,status)
-        values(?,?,?,?,open);`
+        values(?,?,?,?,'open');`
         connection.query(
             sql, [
                 user.firstname, 
