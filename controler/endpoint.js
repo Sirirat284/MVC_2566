@@ -5,47 +5,27 @@ class Endpoint {
 
     constructor() {
         this.user = model.user;
-        this.admin = model.admin;
+        this.user_chat = model.user_chat;
     }
 
     //user
-    insertdataEndpoint = (req, res) => {
-        this.user.firstname = req.body.firstname;
-        this.user.lastname = req.body.lastname;
-        this.user.email= req.body.email;
-        this.user.feedback = req.body.comment;
-        new Logic().insertdataLogic(res , this.user)
+    registerEndpoint = (req , res) => {
+        this.user.username = req.body.username
+        this.user.password = req.body.passwords
+        new Logic().registerLogic(res , this.user)
+
     }
-    showdataEndpoint = (req, res) => {
-        new Logic().showdataLogic(res)
+    loginEndpoint = (req , res) =>{
+        this.user.username = req.body.username
+        this.user.password = req.body.password
+        new Logic().loginLogic(res , this.user)
     }
-
-
-    //admin
-    loginEndpoint = (req, res) => {
-        this.admin.user = req.body.username
-        this.admin.password = req.body.password
-        console.log(this.admin)
-        new Logic().loginLogic(res ,this.admin)
+    chatEndpoint = (req , res) =>{
+        this.user_chat.userid = req.params.usersid
+        this.user_chat.chat_receive = req.body.chat_receive
+        new Logic().insertcahtLogic(res, this.user_chat)
     }
-    showdatauserforadminEndpoint =(req , res) => {
-        var userid = req.params.userid
-        new Logic().showdatauserforadminLogic(res , userid)
-    }
-    adminshowdataEndpoint = (req, res) => {
-        new Logic().adminshowdataEndpoint(res)
-    }
-    editdataforadminEndpoint =(req, res) => {
-        this.user.userid = req.params.userid
-        this.user.status = req.body.status
-        console.log(this.user)
-        new Logic().editdataforadminLogic(res , this.user)
-    }
-
-
-
-
-
+    
 }
 module.exports = {
     Endpoint

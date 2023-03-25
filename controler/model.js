@@ -1,18 +1,17 @@
 module.exports = {
     user: {
-        employee_id : '',
-        firstname: '',
-        lastname:'',
-        email: '',
-        feedback:'',
-        status:''
+       usersid:'',
+       username:'',
+       password:'',
+       timestamp:''
     },
-    admin: {
-        user:'',
-        password: ''
+    userlogin: {
+        username:'',
+        password:''
     },
-    adminlogin:{
-        user:'admin123',
-        password: '1234'
+    user_chat :{
+        userid:'',
+        chat_receive:'',
+        chat_send:''
     }
 }

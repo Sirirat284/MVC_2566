@@ -13,23 +13,21 @@ router.get("/showInformation",(req, res) => {
 router.get('/', (req, res) => {
     return res.render('../view/page_home.ejs')
 })
-router.get('/insert', (req, res) => {
-    return res.render('../view/page_insert.ejs')
+// router.get('/insert', (req, res) => {
+//     return res.render('../view/page_insert.ejs')
+// })
+// router.post('/insert/insertdata',new Endpoint().insertdataEndpoint)
+// router.get('/showdata',new Endpoint().showdataEndpoint)
+
+router.post('/register/success',new Endpoint().registerEndpoint)
+router.get('/register', (req, res) => {
+    return res.render('../view/register.ejs')
 })
-router.post('/insert/insertdata',new Endpoint().insertdataEndpoint)
-router.get('/showdata',new Endpoint().showdataEndpoint)
-
-
-
-
-//admin function
-router.get('/admin123', (req, res) => {
-    return res.render('../view/admin.ejs',{response:{notification:''} })
+router.get('/login', (req, res) => {
+    return res.render('../view/login.ejs',{response:{notification:''} })
 })
-router.post('/admin123/login', new Endpoint().loginEndpoint)
+router.post('/login/success',new Endpoint().loginEndpoint)
+router.post('/chat/:usersid',new Endpoint().chatEndpoint)
 
-router.get('/admin123/function/editanddelete' , new Endpoint().adminshowdataEndpoint)
-
-router.post('/edituser/:userid',new Endpoint().editdataforadminEndpoint)
 
 module.exports = router;
