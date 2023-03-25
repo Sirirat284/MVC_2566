@@ -4,7 +4,7 @@ const mysql = require('mysql');
         database: 'mvc_data',
         port: 3306,
         user: 'root',
-        password: ''
+        password: 'Dodo0989263290'
     });
 
     connection.connect(function (err) {

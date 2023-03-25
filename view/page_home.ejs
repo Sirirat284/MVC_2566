@@ -81,24 +81,6 @@
             text-align: center;
             width: 100%;
         }
-        .textbox {
-            display: block;
-            position: fixed;
-            bottom: 0px;
-            left: 200px;
-            padding: 150px;
-            text-align: center;
-            width: 100%;
-        }
-        .bottonsend {
-            display: block;
-            position: fixed;
-            bottom: 0px;
-            left: 500px;
-            padding: 150px;
-            text-align: center;
-            width: 100%;
-        }
         .text-center {
             text-align: center;
         }
@@ -109,30 +91,23 @@
 
 <body>
 
-    <div class="text-center F1 font30 padding-bt padding-t bold">Welcome to ChatCSIfElse</div>
+    <div class="text-center F1 font30 padding-bt padding-t bold">Welcome to MVC programming and</div>
+    <h6 class="text-center F1 font30 padding-bt padding-t bold">Welcome to ChatCSIfElse</h6>
         <div class="container-fluid padding-bt ">
             <div class="row">
                 <div class="col-xxl-3"></div>
                 <div class="col-9 col-lg-18 ">
-                   <p><%=response.welcome %> <%=response.data[0].username%> <%=response.to %> </p>
-                            <form class="form-horizontal" class="d-flex" action="/chat/<%=response.data[0].usersid%>"
-                                method="POST">
-                                <div class="from-group textbox">
-                                    <div class="col-lg-8">
-                                        <input name="chat_receive" class="form-control me-2" type="text" placeholder="chat">
-                                    </div>
-                                </div>
-
-                                <div class="padding-t padding-l bottonsend ">
-                                    <button class="btn btn-success" type="submit">send</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <a href="http://localhost:3000/register">
+                            <bottom class="btn btn-success" type="submit">Register</bottom>
+                        </a>
+                        <a href="http://localhost:3000/login">
+                            <bottom class="btn btn-warning" type="submit">Login</bottom>
+                        </a>   
+                    </div>  
                 </div>
             </div>
         </div>
-    </div>
             
         <footer class="bg-dark">
             <p>StudentID : 63050190 <br>
