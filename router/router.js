@@ -28,6 +28,7 @@ router.get('/login', (req, res) => {
 })
 router.post('/login/success',new Endpoint().loginEndpoint)
 router.post('/chat/:usersid',new Endpoint().chatEndpoint)
+console.log("haha")
 
 
 module.exports = router;
